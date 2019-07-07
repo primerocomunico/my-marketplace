@@ -1,0 +1,74 @@
+<app-header></app-header>
+<div class="container">
+  <div class="row" *ngIf="this._data.flagAlert == true && _data.dataNewProduct['success']">
+    <div class="col-8 mx-auto">
+      <div class="alert alert-success aviso-alert" role="alert">
+        <p>{{_data.dataNewProduct["success"]}}</p>
+      </div>
+    </div>
+    </div>
+    <div class="row" *ngIf="this._data.flagAlert == true && _data.dataNewProduct['warning']">
+    <div class="col-8 mx-auto">
+      <div class="alert alert-warning aviso-alert" role="alert">
+        <p>{{_data.dataNewProduct["warning"]}}</p>
+      </div>
+    </div>
+    </div>
+    <div class="row" *ngIf="this._data.flagAlert == true && _data.dataNewProduct['error']">
+    <div class="col-8 mx-auto">
+      <div class="alert alert-danger aviso-alert" role="alert">
+        <p>{{_data.dataNewProduct["error"]}}</p>
+      </div>
+    </div>
+  </div>
+  <div class="row" *ngIf="this._data.flagAlert == true && _data.dataNewProduct['delete']">
+  <div class="col-8 mx-auto">
+    <div class="alert alert-danger aviso-alert" role="alert">
+      <p>{{_data.dataNewProduct["delete"]}}</p>
+    </div>
+  </div>
+</div>
+  <div class="total-card">
+    <div class="row">
+      <div class="col">
+        <div class="alert alert-info" role="alert">
+          <h4 class="header-category">DISCOVER OUR PRODUCTS</h4>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6" *ngFor="let product of _data.data; let j = index">
+        <div class="card mb-3" style="max-width: 540px;">
+          <div class="row no-gutters">
+            <div class="col-md-4">
+              <img src='{{product.imageURL}}' class="card-img rounded mx-auto d-block" alt="...">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title"><a [routerLink]="['/product/'+product['idProduct']]">{{product["productName"]}}</a></h5>
+                <div *ngIf='product.category == "Home"'>
+                  <span class="badge badge-success">{{product["category"]}}</span>
+                </div>
+                <div *ngIf='product.category == "Electronics"'>
+                  <span class="badge badge-primary">{{product["category"]}}</span>
+                </div>
+                <div *ngIf='product.category == "Fashion"'>
+                  <span class="badge badge-warning">{{product["category"]}}</span>
+                </div>
+                <p class="card-text">{{product["description"].split(" ").slice(0, 10).join(' ') + '...'}}</p>
+                <div class="row">
+                  <div class="col">
+                    <h3>{{product["currency"]}}{{product["price"]}}</h3>
+                  </div>
+                  <div class="col">
+                    <a [routerLink]="['/product/'+product['idProduct']]" class="btn btn-outline-success" tabindex="-1" role="button" aria-disabled="true">Discover More!</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

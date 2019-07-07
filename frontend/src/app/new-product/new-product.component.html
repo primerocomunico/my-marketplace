@@ -1,0 +1,28 @@
+<div class="text-center">
+  <div class="form-signin">
+    <img class="mb-4" src="/assets/logo.png" alt="" width="200">
+    <h1 class="h3 mb-3 font-weight-normal">Insert new product</h1>
+    <input [(ngModel)]="productName" type="text" class="form-control" placeholder="Product Name" required autofocus>
+    <br>
+    <input [(ngModel)]="category" type="text" class="form-control" placeholder="Category: Home | Electronics | Fashion" required>
+    <br>
+    <textarea [(ngModel)]="description" type="text-area" class="form-control" placeholder="Description" required rows="8"></textarea>
+    <br>
+    <input [(ngModel)]="imageURL" type="text-area" class="form-control" placeholder="Image URL" required>
+    <br>
+    <div class="row">
+      <div class="col-6">
+        <input [(ngModel)]="currency" type="text-area" class="form-control" placeholder="Currency" required>
+      </div>
+      <div class="col-6">
+        <input [(ngModel)]="price" type="number" class="form-control" placeholder="Price" required>
+      </div>
+    </div>
+    <br>
+    <button class="btn btn-lg btn-primary btn-block" type="button" (click)="addProduct()">Publish it!</button>
+    <br>
+    <div class="home-link">
+      <a [routerLink]="['/products']">GO HOME</a>
+    </div>
+  </div>
+</div>

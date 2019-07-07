@@ -1,0 +1,43 @@
+<div class="text-center">
+  <div class="form-signin">
+    <img class="mb-4" src="/assets/logo.png" alt="" width="200">
+    <h1 class="h3 mb-3 font-weight-normal">Login to our Marketplace</h1>
+
+    <div *ngIf="_user.dataNewUser != undefined">
+      <div class="row" *ngIf="this._user.flagAlert == true && _user.dataNewUser['newUser']">
+        <div class="col-12 mx-auto">
+          <div class="alert alert-success aviso-alert" role="alert">
+            <p>{{_user.dataNewUser["newUser"]}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="_user.dataNewUser != undefined">
+      <div class="row" *ngIf="this._user.flagAlert == true && _user.dataNewUser['userExists']">
+        <div class="col-12 mx-auto">
+          <div class="alert alert-warning aviso-alert" role="alert">
+            <p>{{_user.dataNewUser["userExists"]}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="_user.dataLoginUser != undefined">
+      <div class="row" *ngIf="this._user.flagAlert == true && _user.dataLoginUser['wrong'] && _user.dataNewUser == undefined">
+        <div class="col-12 mx-auto">
+          <div class="alert alert-danger aviso-alert" role="alert">
+            <p>{{_user.dataLoginUser["wrong"]}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <input [(ngModel)]="username" type="text" class="form-control" placeholder="Username" required autofocus>
+    <br>
+    <input [(ngModel)]="password" type="password" class="form-control" placeholder="Password" required>
+    <br>
+    <button class="btn btn-lg btn-primary btn-block" type="button" (click)="validateUser()">Sign in</button>
+    <p>Are you a <b>New user</b>? Please, <a [routerLink]="['/register']">register first</a></p>
+  </div>
+</div>

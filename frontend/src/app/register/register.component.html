@@ -1,0 +1,25 @@
+<div class="jumbotron">
+  <h1 class="display-4">Welcome to my MarketPlace!</h1>
+  <p class="lead">It is  a basic template for a MarketPlace structure with the next services:</p>
+  <ol type="1">
+    <li>Register new user</li>
+    <li>Login access</li>
+    <li>Show complete catalogue</li>
+    <li>Show product detail</li>
+    <li>Create new product</li>
+    <li>Delete an specific product</li>
+  </ol>
+</div>
+<!-- <div *ngIf="_user.dataNewUser != undefined" class="container"> -->
+  <div class="text-center">
+    <div class="form-signin">
+      <img class="mb-4" src="/assets/logo.png" alt="" width="200">
+      <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+      <input [(ngModel)]="username" type="text" id="inputUserName" class="form-control" placeholder="Username" required autofocus>
+      <br>
+      <input [(ngModel)]="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+      <br>
+      <button class="btn btn-lg btn-primary btn-block" type="button" (click)="registrar()">Create new user</button>
+    </div>
+  </div>
+<!-- </div> -->

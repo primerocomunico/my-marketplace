@@ -1,0 +1,53 @@
+<div class="header-space"></div>
+<!-- Hay que hacer un ngIf y compararlo con undifined para que no se cargue hasta que haya los datos disponibles  -->
+<div *ngIf="data != undefined" class="container">
+  <div class="total-card">
+    <div class="row">
+      <div class="col">
+        <div class="alert alert-info" role="alert">
+          <h4 class="header-category">YOU ARE IN THE <span class="category"><b>{{data["category"]}}</b></span> AREA</h4>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-lg-6 mx-auto">
+        <div class="card mb-3" style="max-width: 540px;">
+          <div class="row no-gutters">
+            <div class="col-md-4 mx-auto text-center">
+              <img src='{{data["imageURL"]}}' class="card-img rounded mx-auto d-block" alt="...">
+              <div>
+                <a (click)='delProduct(data["idProduct"])' class="btn btn-outline-danger delete-btn" tabindex="-1" role="button" aria-disabled="true">Delete product!</a>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">{{data["productName"]}}</h5>
+                <div *ngIf='data.category == "Home"'>
+                  <span class="badge badge-success">{{data["category"]}}</span>
+                </div>
+                <div *ngIf='data.category == "Electronics"'>
+                  <span class="badge badge-primary">{{data["category"]}}</span>
+                </div>
+                <div *ngIf='data.category == "Fashion"'>
+                  <span class="badge badge-warning">{{data["category"]}}</span>
+                </div>
+                <p class="card-text">{{data["description"]}}</p>
+                <div class="row">
+                  <div class="col">
+                    <h3>{{data["currency"]}}{{data["price"]}}</h3>
+                  </div>
+                  <div class="col">
+                    <button type="button" class="btn btn-outline-success">Buy it now!</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="home-link">
+          <a [routerLink]="['/products']"><b>GO HOME</b></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
