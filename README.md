@@ -25,7 +25,10 @@ Tecnologías utilizadas para Backend:
 1. Nodejs
 2. Express
 3. Bcrypt (Security Access)
-4. JSONwebtoken (Local Storage - Session Access)
+4. JSONwebtoken (Session Access)
+5. MongoDB
+
+La aplicación funciona bajo los servidores de **heroku**
 
 ### ENDPOINTS ACCESS
 Para conocer la estructura de la API y sus ENDPOINTS, [descarga el siguiente PDF.](api-documentation.pdf)
